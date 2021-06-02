@@ -16,6 +16,15 @@
             </tr>
         </thead>
         <tbody>
+            <% articles.forEach(article =>{ %>
+                <tr>
+                    <td><%= article.id %></td>
+                    <td><%= article.title %></td>
+                    <td><%= article.slug%></td>
+                    <td><%= article.category.title %> </td>
+                    <td> Ações</td>
+                </tr>
+            <% }) %>
         </tbody>
     </table>
 </div>
@@ -27,5 +36,6 @@
                 form.submit();
             }
         }
+        console.log(article)
 </script>
 <%- include('../../partials/footer') %>

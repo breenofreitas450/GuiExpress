@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 const connection = require("../database/database");
-const category = require("../categories/CategoryModel");
+const Category = require("../categories/CategoryModel");
 
 const Article = connection.define('articles', {
     title: {
@@ -17,10 +17,13 @@ const Article = connection.define('articles', {
 });
 
 
-category.hasMany(Article);// Uma categoria te muitos artigos 1 para muitos
-Article.belongsTo(category); // UM ARTIGO PERTENCE A UMA CATEGORIA 1 para 1
+Category.hasMany(Article);// Uma categoria te muitos artigos 1 para muitos
+Article.belongsTo(Category); // UM ARTIGO PERTENCE A UMA CATEGORIA 1 para 1
+
+//Category.hasMany(Article, { foreignKey: 'catId' });
+//Article.belongsTo(Category, { foreignKey: 'catId' });
 
 
-//Article.sync({force: true}); Função para forçar a recriação da tabelas
+//Article.sync({force: true}); //Função para forçar a recriação da tabelas
 
 module.exports = Article;

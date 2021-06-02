@@ -11,6 +11,6 @@ const Category = connection.define('categories',{
     }
 })
 
-//Category.sync({force: true}); Função para forçar a recriação da tabelas
+//Category.sync({force: true}); //Função para forçar a recriação da tabelas
 
 module.exports = Category;
